@@ -1,5 +1,6 @@
 import { useSettings } from "context/SettingsContext/SettingsContextProvider";
 
+import { LivePriceTicker } from "components/LivePriceTicker/LivePriceTicker";
 import { MobileSideNav } from "components/SideNav/MobileSideNav";
 
 import { AppHeaderLogo } from "./AppHeaderLogo";
@@ -19,9 +20,14 @@ export function AppHeader({ leftContent }: Props) {
   return (
     <header
       data-qa="header"
-      className="flex justify-between gap-16 max-md:border-b-1/2 max-md:border-slate-600 max-md:p-8"
+      className="flex items-center justify-between gap-16 max-md:border-b-1/2 max-md:border-slate-600 max-md:p-8"
     >
-      <div className="flex items-center overflow-hidden">{leftContent ? leftContent : <AppHeaderLogo />}</div>
+      <div className="flex items-center gap-16 overflow-hidden">
+        {leftContent ? leftContent : <AppHeaderLogo />}
+        <div className="hidden md:block">
+          <LivePriceTicker variant="header" />
+        </div>
+      </div>
 
       <div className="shrink-0">
         <AppHeaderUser

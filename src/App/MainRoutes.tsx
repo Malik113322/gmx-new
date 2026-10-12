@@ -92,6 +92,20 @@ const DecodeErrorPage = () => (
   </Suspense>
 );
 
+const LazyNewsPage = lazy(() => import("pages/News/NewsPage"));
+const NewsPage = () => (
+  <Suspense fallback={<Trans>Loading...</Trans>}>
+    <LazyNewsPage />
+  </Suspense>
+);
+
+const LazyHomePage = lazy(() => import("pages/Home/HomePage"));
+const HomePage = () => (
+  <Suspense fallback={<Trans>Loading...</Trans>}>
+    <LazyHomePage />
+  </Suspense>
+);
+
 export function MainRoutes({ openSettings }: { openSettings: () => void }) {
   const { chainId } = useChainId();
 
@@ -115,7 +129,10 @@ export function MainRoutes({ openSettings }: { openSettings: () => void }) {
       </Route>
       <RedirectWithQuery from="/v2" to="/trade" />
       <Route exact path="/">
-        <RedirectWithQuery to="/trade" />
+        <HomePage />
+      </Route>
+      <Route exact path="/home">
+        <HomePage />
       </Route>
       <Route exact path="/v1">
         <RedirectWithQuery to="/trade" />
@@ -179,6 +196,9 @@ export function MainRoutes({ openSettings }: { openSettings: () => void }) {
       </Route>
       <Route exact path="/announcements">
         <AnnouncementsPage />
+      </Route>
+      <Route exact path="/news">
+        <NewsPage />
       </Route>
       <Route path="/leaderboard/">
         <SyntheticsStateContextProvider skipLocalReferralCode pageType="leaderboard">

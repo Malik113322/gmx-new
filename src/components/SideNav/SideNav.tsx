@@ -16,7 +16,9 @@ import DashboardIcon from "img/dashboard.svg?react";
 import DatabaseIcon from "img/database.svg?react";
 import DocsIcon from "img/docs.svg?react";
 import EcosystemIcon from "img/ecosystem.svg?react";
+import HomeIcon from "img/ic_home.svg?react";
 import AnnouncementsIcon from "img/ic_announcement.svg?react";
+import NewsIcon from "img/ic_news.svg?react";
 import EarnIcon from "img/ic_earn.svg?react";
 import ReferralsIcon from "img/ic_referrals.svg?react";
 import LeaderboardIcon from "img/leaderboard.svg?react";
@@ -195,6 +197,12 @@ export function MenuSection({
 
   const mainNavItems = [
     {
+      icon: <HomeIcon className="size-20" />,
+      label: t`Home`,
+      key: "home",
+      to: "/",
+    },
+    {
       icon: <TradeIcon className="size-20" />,
       label: withMegaethSparkle(t`Trade`),
       key: "trade",
@@ -222,23 +230,36 @@ export function MenuSection({
       key: "announcements",
       to: "/announcements",
     },
+    {
+      icon: <NewsIcon className="size-20" />,
+      label: t`Crypto News`,
+      key: "news",
+      to: "/news",
+    },
   ];
 
   const { pathname } = useLocation();
 
   return (
     <ul className="flex list-none flex-col px-0">
-      {mainNavItems.map((item) => (
-        <NavItem
-          key={item.key}
-          icon={item.icon}
-          label={item.label}
-          isActive={pathname === item.to || pathname.startsWith(`${item.to}/`)}
-          isCollapsed={isCollapsed}
-          to={item.to}
-          onClick={onMenuItemClick}
-        />
-      ))}
+      {mainNavItems.map((item) => {
+        const isItemActive =
+          item.to === "/"
+            ? pathname === "/" || pathname === "/home"
+            : pathname === item.to || pathname.startsWith(`${item.to}/`);
+
+        return (
+          <NavItem
+            key={item.key}
+            icon={item.icon}
+            label={item.label}
+            isActive={isItemActive}
+            isCollapsed={isCollapsed}
+            to={item.to}
+            onClick={onMenuItemClick}
+          />
+        );
+      })}
     </ul>
   );
 }

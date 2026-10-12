@@ -7365,6 +7365,8 @@ msgstr ""
 #: src/App/MainRoutes.tsx
 #: src/App/MainRoutes.tsx
 #: src/App/MainRoutes.tsx
+#: src/App/MainRoutes.tsx
+#: src/App/MainRoutes.tsx
 #: src/components/BridgeModal/BridgeOutModal.tsx
 #: src/components/ClaimModal/ClaimModal.tsx
 #: src/components/Claims/Claims.tsx
@@ -9214,6 +9216,10 @@ msgstr ""
 #: src/components/GmxAccountModal/DepositView.tsx
 #: src/components/GmxAccountModal/keys.ts
 msgid "Deposit failed"
+msgstr ""
+
+#: src/components/SideNav/SideNav.tsx
+msgid "Home"
 msgstr ""
 
 #: src/components/OrdersModal/TPSLOrdersList.tsx
@@ -11549,6 +11555,10 @@ msgstr ""
 
 #: src/components/Errors/ErrorBoundary.tsx
 msgid "Reload page"
+msgstr ""
+
+#: src/components/SideNav/SideNav.tsx
+msgid "Crypto News"
 msgstr ""
 
 #: src/components/SettleAccruedFundingFeeModal/SettleAccruedFundingFeeModal.tsx

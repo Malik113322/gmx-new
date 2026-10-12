@@ -7365,6 +7365,8 @@ msgstr ""
 #: src/App/MainRoutes.tsx
 #: src/App/MainRoutes.tsx
 #: src/App/MainRoutes.tsx
+#: src/App/MainRoutes.tsx
+#: src/App/MainRoutes.tsx
 #: src/components/BridgeModal/BridgeOutModal.tsx
 #: src/components/ClaimModal/ClaimModal.tsx
 #: src/components/Claims/Claims.tsx
@@ -9215,6 +9217,10 @@ msgstr "{0}ms"
 #: src/components/GmxAccountModal/keys.ts
 msgid "Deposit failed"
 msgstr "Einzahlung fehlgeschlagen"
+
+#: src/components/SideNav/SideNav.tsx
+msgid "Home"
+msgstr ""
 
 #: src/components/OrdersModal/TPSLOrdersList.tsx
 msgid "EST. PNL"
@@ -11550,6 +11556,10 @@ msgstr "GMX Positions Bot"
 #: src/components/Errors/ErrorBoundary.tsx
 msgid "Reload page"
 msgstr "Seite neu laden"
+
+#: src/components/SideNav/SideNav.tsx
+msgid "Crypto News"
+msgstr ""
 
 #: src/components/SettleAccruedFundingFeeModal/SettleAccruedFundingFeeModal.tsx
 msgid "Settling..."

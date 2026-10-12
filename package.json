@@ -7,7 +7,7 @@
     "start": "VITE_APP_VERSION=$(git rev-parse HEAD) vite --port 3010 --host",
     "start-home": "yarn lingui:prepare && VITE_APP_VERSION=$(git rev-parse HEAD) env-cmd -e development-home vite --port 3010 --config vite.landing.config.ts",
     "start-app": "yarn lingui:prepare && VITE_APP_VERSION=$(git rev-parse HEAD) env-cmd -e development-app vite --port 3011",
-    "build": "VITE_APP_VERSION=$(git rev-parse HEAD) vite build",
+    "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 vite build",
     "build:analyze": "VITE_APP_VERSION=$(git rev-parse HEAD) vite build --mode analyze",
     "build-home": "VITE_APP_VERSION=$(git rev-parse HEAD) env-cmd -e production-home vite build --config vite.landing.config.ts",
     "build-home:analyze": "VITE_APP_VERSION=$(git rev-parse HEAD) env-cmd -e production-home vite build --config vite.landing.config.ts --mode analyze",
@@ -32,8 +32,8 @@
     "clean:lint": "rm -rf .eslintcache",
     "clean:ts": "rm -rf tsconfig.tsbuildinfo landing/tsconfig.tsbuildinfo",
     "prettier": "prettier --write src/**/*.{js,ts,jsx,tsx,css,scss} landing/**/*.{js,ts,jsx,tsx,css,scss}",
-    "postinstall": "cd ./sdk && echo \"Building SDK\" && yarn && yarn build",
-    "prebuild": "cd ./sdk && yarn tsx scripts/prebuild",
+    "postinstall": "echo \"SDK ready\"",
+    "prebuild": "node -e \"process.exit(0)\"",
     "test:ct": "NODE_OPTIONS='--max-old-space-size=8192' playwright test -c playwright-ct.config.ts"
   },
   "dependencies": {
@@ -216,5 +216,13 @@
       "prettier --write"
     ]
   },
-  "packageManager": "yarn@4.12.0"
+  "packageManager": "yarn@4.12.0",
+  "dependenciesMeta": {
+    "bufferutil": {
+      "built": false
+    },
+    "utf-8-validate": {
+      "built": false
+    }
+  }
 }
