@@ -304,7 +304,7 @@ export function createViteConfig(
     build: {
       assetsInlineLimit: 0,
       outDir: "build",
-      sourcemap: true,
+      sourcemap: false,
       // WebKit can retain failed modulepreloads across reloads: https://bugs.webkit.org/show_bug.cgi?id=270357
       modulePreload: false,
       rollupOptions: {
