@@ -256,6 +256,7 @@ export function createViteConfig(
     css: {
       preprocessorOptions: {
         scss: {
+          silenceDeprecations: ["import", "legacy-js-api"],
           additionalData: `
             $screen-md: ${BREAKPOINTS.mobile}px;
             $screen-lg: ${BREAKPOINTS.tablet}px;
